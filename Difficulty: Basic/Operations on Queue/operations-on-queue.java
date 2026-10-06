@@ -1,4 +1,5 @@
 class MyQueue {
+    
     int arr[];
     int size;
     int rear;
@@ -14,14 +15,13 @@ class MyQueue {
     public void enqueue(int x) {
         
         // code here
-        if(rear == size - 1){
+        if(rear == size-1){
             return;
         }
-        
-        rear = rear + 1;
+        rear = rear+1;
         arr[rear] = x;
     }
-
+    
         
     public void dequeue() {
         // code here
@@ -43,12 +43,13 @@ class MyQueue {
         }
         return arr[0];
         
+        
     }
 
     public int getRear() {
         
         // code here
-         if(isEmpty()){
+        if(isEmpty()){
             return -1;
         }
         return arr[rear];
@@ -60,8 +61,9 @@ class MyQueue {
         return rear == -1;
     }
 
-   public int size() {
-          return rear + 1; 
-      
+    public int size() {
+        // code here
+       
+        return rear+1;
     }
 }
