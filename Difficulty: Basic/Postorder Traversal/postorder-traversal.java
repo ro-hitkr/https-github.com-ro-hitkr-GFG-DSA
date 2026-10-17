@@ -16,13 +16,14 @@ class Solution {
         postorder(root,result);
         return result;
     }
-        public void postorder(Node root, ArrayList<Integer> result){
-            if(root == null){
-                return;
-            }
+       public void postorder(Node root, ArrayList<Integer> result){
+           if(root==null){
+               return;
+           }
             postorder(root.left, result);
-            postorder(root.right, result);
+            postorder(root.right,result);
             result.add(root.data);
+            
         }
     
 }
