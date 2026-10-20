@@ -9,28 +9,32 @@ class Node {
     }
 };*/
 
-
 class Solution {
-    public static int height(Node root){
-    if(root == null){
-        return 0;
+    static class Info{
+        int dia;
+        int ht;
+        public Info(int dia, int ht){
+            this.dia = dia;
+            this.ht = ht;
+        }
     }
-    int lh = height(root.left);
-    int rh = height(root.right);
-    return Math.max(lh,rh)+1;
-}
+    public Info diameterr(Node root){
+        if(root == null){
+            return new Info(0,0);
+        }
+        Info leftinfo = diameterr(root.left);
+        Info rightinfo = diameterr(root.right);
+        
+        int diam = Math.max(Math.max(leftinfo.dia,rightinfo.dia),leftinfo.ht+rightinfo.ht);
+        int ht = Math.max(leftinfo.ht,rightinfo.ht)+1;
+        
+        return new Info(diam,ht);
+    }
     public int diameter(Node root) {
         // code here
-        if(root == null){
-            return 0;
-        }
-        int leftDiam = diameter(root.left);
-        int leftht = height(root.left);
-        int rightDiam = diameter(root.right);
-        int rightht = height(root.right);
-        
-        int selfDiam = leftht + rightht;
-        
-        return Math.max(selfDiam, Math.max(leftDiam, rightDiam));
+        if (root == null) {
+                    return 0;
+                }
+                return diameterr(root).dia;
     }
 }
