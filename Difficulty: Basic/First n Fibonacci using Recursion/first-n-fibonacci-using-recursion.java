@@ -1,18 +1,19 @@
 class Solution {
     public ArrayList<Integer> fibonacciNumbers(int n) {
         // code here
-  ArrayList<Integer> ans = new ArrayList<>();
-        if (n <= 0) return ans;
-
-        int f1 = 0, f2 = 1;
-        ans.add(f1);
-
-        for (int i = 1; i < n; i++) {
-            ans.add(f2);
-            int next = f1 + f2;
-            f1 = f2;
-            f2 = next;
-        }
-        return ans;
+    ArrayList<Integer> result = new ArrayList<>();
+  if(n<=0){
+      return result;
+  }
+    result.add(0);
+    if(n==1){
+        return result;
     }
+    result.add(1);
+    for(int i = 2;i<n;i++){
+        int next = result.get(i-1) + result.get(i-2);
+        result.add(next);
+    }
+    return result;
+      }
 }
